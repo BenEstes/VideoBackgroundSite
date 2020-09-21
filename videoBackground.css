@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    /* Removes the underline */
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.main {
+    position: relative;
+    /* vh is unit of measurement. 1vh is equal to 1% of viewport */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Set in percentage instead of vh/vw because percentage will be relative to the container its in rather than the viewport. */
+    width: 100%;
+    height: 100%;
+    background-color: #4b5163;
+    background-image: url("img/cover.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.content {
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+.video-container video {
+    min-width: 100%;
+    min-height: 100%;
+    /* Next four lines can be used to center video or background to keep it centerted when viewport changes sizes. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+    filter: blur(6px);
+}
+
+.video-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.click {
+    /* Inline-Block allows you to set the top and bottom margin as well as width and height. This is not the case with inline. */
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 30px;
+    background-color: #4b5163;
+    color: white;
+    border: 3px solid white;
+    border-radius: 10px;
+    opacity: .7;
+    font-size: 20px;
+}
+
+#about {
+    color: white;
+    background-color: #4b5163;
+    padding: 50px;
+    text-align: center;
+}
+
+#about h1 {
+    font-size: 50px;
+
+}
+
+#about p {
+    font-size: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+#about h2 {
+    margin: 40px 0 10px 0;
+    font-size: 25px;
+}
+
+.click:hover {
+    opacity: .9;
+    /* changes size of the element */
+    transform: scale(1.05);
+}
+
+.fab {
+    margin: 0 5px;
+    opacity: .7;
+}
+
+.fab:hover {
+    opacity: 1;
+}
